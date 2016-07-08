@@ -1,13 +1,19 @@
-require("sinatra")
+require('sinatra')
 require('sinatra/reloader')
-also_reload('lib/**/*.rb')
 require('./lib/words_definitions')
+require('./lib/definition')
 
+also_reload('lib/**/*.rb')
 
-get('/')do
+get('/') do
+  @page_title="home"
+  @word_list = Word.all()
   erb(:index)
 end
-get ('/words_definitions') do
-  # @word_count = params.fetch('word').word_count(params.fetch('sentence'))
-  # erb(:word_count)
+
+post('/') do
+  @page_title = "words"
+  Word.new(params.fetch('name')).save()
+  @word_list = Word.all()
+  erb(:dealerships)
 end
