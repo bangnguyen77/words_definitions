@@ -1,16 +1,3 @@
-<h1>Words and Definitions Look Up</h1>
-
-<form action="/words" method="post">
-  <div class="form-group">
-     <label for="name">Enter a new word:</label>
-     <input id="name" name="name" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn-success">Submit</button>
-</form>
-<% if @dealer_list %>
-  <ul>
-    <% @dealer_list.each() do | dealer | %>
-    <li><a href="/dealerships/view/<%= dealer.id %>"><%= dealer.name %></a></li>
-    <% end %>
-  </ul>
-<% end %>
+<h1>Words and Definitions!</h1>
+<!-- <h3><a href="/words">See all words</a></h3>
+<h3><a href="/words/new">Add a new word</a></h3> -->

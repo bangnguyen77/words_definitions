@@ -5,7 +5,11 @@ class Word
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
     @definitions = attributes.fetch(:definitions)
-    @id = @@words.length() + 1
+    @id = @@words.length().+(1)
+  end
+
+  define_singleton_method(:clear) do
+    @@words = []
   end
 
   define_singleton_method(:all) do
@@ -16,21 +20,18 @@ class Word
     @@words.push(self)
   end
 
-  define_singleton_method(:clear) do
-    @@words = []
-  end
-
-  define_singleton_method(:find) do |id|
+  define_singleton_method(:find) do |idnumber|
     found_word = nil
     @@words.each() do |word|
-      if word.id() == id
+      if word.id() == idnumber
         found_word = word
       end
     end
     found_word
   end
-  #
-  # define_method(:add_definition) do |definition|
-  #   @definitions.push(definition)
-  # end
+
+  define_method(:add_definition) do |definition|
+    @definitions.push(definition)
+  end
+
 end
