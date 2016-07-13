@@ -27,7 +27,7 @@ describe('the words and definitions path', {:type => :feature}) do
   it("clicks the newly-added word, users go to a new page where definitions can be addded") do
     visit('/words')
     click_link('hello')
-    expect(page).to have_content("Definitions for 'hello'")
+    expect(page).to have_content("Definitions for hello")
   end
 
   it('goes to the definitions page for a word') do
@@ -45,24 +45,4 @@ describe('the words and definitions path', {:type => :feature}) do
     click_button('Add')
     expect(page).to have_content('act of greeting')
   end
-
-  # it('goes back to the list of words from a word\'s definition page') do
-  #   visit('/words')
-  #   click_link('Foo')
-  #   click_link('Return to all words')
-  #   expect(page).to have_content('Words')
-  # end
-  #
-  # it('goes back to the main page from a word\'s definition page') do
-  #   visit('/words')
-  #   click_link('Foo')
-  #   click_link('Return to main page')
-  #   expect(page).to have_content('Words and Definitions!')
-  # end
-  #
-  # it('goes back to the main page from the list of words page') do
-  #   visit('/words')
-  #   click_link('Return to main page')
-  #   expect(page).to have_content('Words and Definitions!')
-  # end
 end
