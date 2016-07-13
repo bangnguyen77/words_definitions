@@ -13,10 +13,10 @@ get('/words') do
   erb(:words)
 end
 
-# get('/words/new') do
-#   erb(:words_form)
-# end
-#
+get('/words/new') do
+  erb(:new_word_form)
+end
+
 # post('/words') do
 #   Word.new({:name=> params.fetch('word'), :definitions=> []}).save()
 #   @words = Word.all
