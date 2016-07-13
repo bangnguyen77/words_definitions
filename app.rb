@@ -28,15 +28,15 @@ get('/words/:id') do
   erb(:word_definition)
 end
 
-# get('/words/:id/definitions/new') do
-#   @word = Word.find(params.fetch('id').to_i())
-#   erb(:definitions_form)
-# end
-#
-# post('/definitions') do
-#   @definition = Definition.new({:meaning=> params.fetch('meaning')})
-#   @definition.save()
-#   @word = Word.find(params.fetch('word_id').to_i())
-#   @word.add_definition(@definition)
-#   erb(:word)
-# end
+get('/words/:id/definitions/new') do
+  @word = Word.find(params.fetch('id').to_i())
+  erb(:definitions_form)
+end
+
+post('/definitions') do
+  @definition = Definition.new({:meaning=> params.fetch('meaning')})
+  @definition.save()
+  @word = Word.find(params.fetch('word_id').to_i())
+  @word.add_definition(@definition)
+  erb(:word_definition)
+end
