@@ -17,17 +17,17 @@ get('/words/new') do
   erb(:new_word_form)
 end
 
-# post('/words') do
-#   Word.new({:name=> params.fetch('word'), :definitions=> []}).save()
-#   @words = Word.all
-#   erb(:words)
-# end
-#
-# get('/words/:id') do
-#   @word = Word.find(params.fetch('id').to_i())
-#   erb(:word)
-# end
-#
+post('/words') do
+  Word.new({:name => params.fetch('word'), :definitions => []}).save()
+  @words = Word.all()
+  erb(:words)
+end
+
+get('/words/:id') do
+  @word = Word.find(params.fetch('id').to_i())
+  erb(:word_definition)
+end
+
 # get('/words/:id/definitions/new') do
 #   @word = Word.find(params.fetch('id').to_i())
 #   erb(:definitions_form)

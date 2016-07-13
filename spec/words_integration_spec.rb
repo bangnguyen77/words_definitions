@@ -16,20 +16,20 @@ describe('the words and definitions path', {:type => :feature}) do
     expect(page).to have_content('Add a new word')
   end
 
-  # it('adds a new word to list of words') do
-  #   visit('/')
-  #   click_link('Add a new word')
-  #   fill_in('word', :with => 'Foo')
-  #   click_button('Add')
-  #   expect(page).to have_content('Foo')
-  # end
-  #
-  # it('goes to the definitions page for a word') do
-  #   visit('/words')
-  #   click_link('Foo')
-  #   expect(page).to have_content('Definitions for Foo')
-  # end
-  #
+  it('adds a new word to list of words') do
+    visit('/')
+    click_link('Add a new word')
+    fill_in('word', :with => 'hello')
+    click_button('Add')
+    expect(page).to have_content('hello')
+  end
+
+  it("clicks the newly-added word, users go to a new page where definitions can be addded") do
+    visit('/words')
+    click_link('hello')
+    expect(page).to have_content("Definitions for 'hello'")
+  end
+
   # it('goes to the definitions page for a word') do
   #   visit('/words')
   #   click_link('Foo')
